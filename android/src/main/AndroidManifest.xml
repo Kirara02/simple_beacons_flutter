@@ -28,7 +28,8 @@
         </receiver>
 
         <service
-            android:name="com.umair.beacons_plugin.BeaconsDiscoveryService" />
+            android:name="com.umair.beacons_plugin.BeaconsDiscoveryService"
+            android:foregroundServiceType="location"/>
 
         <service
             android:name="org.altbeacon.beacon.service.BeaconService"
