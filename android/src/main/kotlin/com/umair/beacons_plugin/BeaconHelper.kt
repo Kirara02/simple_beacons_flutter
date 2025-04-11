@@ -8,6 +8,7 @@ import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import org.altbeacon.beacon.*
+import org.altbeacon.beacon.service.RunningAverageRssiFilter
 import timber.log.Timber
 import java.util.*
 import kotlin.math.roundToInt
