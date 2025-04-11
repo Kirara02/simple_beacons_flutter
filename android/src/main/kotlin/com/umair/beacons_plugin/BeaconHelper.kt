@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.os.RemoteException
-import android.util.Log
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -196,7 +195,10 @@ open class BeaconHelper(var context: Context) : BeaconConsumer, BeaconsPlugin.Co
         if (BeaconsPlugin.permissionsGranted(context)) {
 
             Timber.i(TAG, "setUpBeaconManager")
+            BeaconManager.setRssiFilterImplClass(RunningAverageRssiFilter::class.java)
+
             beaconManager = BeaconManager.getInstanceForApplication(context)
+
 
             beaconManager?.beaconParsers?.add(BeaconParser().setBeaconLayout("m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25"))
             beaconManager?.beaconParsers?.add(BeaconParser().setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"))
